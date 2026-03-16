@@ -36,17 +36,17 @@ def test_temperature_input() -> None:
         print(e)
     print("\nTesting temperature: abc")
     try:
-        check_temperature("abc")    
+        check_temperature("abc")
     except (TemperatureTooHot, TemperatureTooLow, NotANumber) as e:
         print(e)
     print("\nTesting temperature: 100")
     try:
-        check_temperature("100")    
+        check_temperature("100")
     except (TemperatureTooHot, TemperatureTooLow, NotANumber) as e:
         print(e)
     print("\nTesting temperature: -50")
     try:
-        check_temperature("-50") 
+        check_temperature("-50")
     except (TemperatureTooHot, TemperatureTooLow, NotANumber) as e:
         print(e)
     print("\nAll tests completed - program didn't crash!")
