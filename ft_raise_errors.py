@@ -1,4 +1,4 @@
-def check_plant_health(plant_name: str, water_level: int , sunlight_hours: int) -> None:
+def check_plant_health(plant_name: str, water_level: int, sunlight_hours: int):
     try:
         if plant_name == "":
             raise ValueError("Plant name cannot be empty!")
@@ -16,10 +16,9 @@ def check_plant_health(plant_name: str, water_level: int , sunlight_hours: int) 
             print(f"Plant '{plant_name}' is healthy!")
     except ValueError as e:
         print(f"Error: {e}")
-    
 
 
-if __name__ == "__main__":
+def test_plant_checks():
     print("=== Garden Plant Health Checker ===\n")
     print("Testing good values...")
     check_plant_health("tomato", 1, 2)
@@ -34,3 +33,7 @@ if __name__ == "__main__":
     check_plant_health("plant", 2, 0)
     print("")
     print("All error raising tests completed!")
+
+
+if __name__ == "__main__":
+    test_plant_checks()
