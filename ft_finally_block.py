@@ -8,7 +8,7 @@ def water_plants(plant_list) -> None:
     except ValueError as e:
         print(f"Error: {e}")
     finally:
-        print("Closing watering system (cleanup)")	
+        print("Closing watering system (cleanup)")
 
 
 if __name__ == "__main__":
@@ -21,4 +21,3 @@ if __name__ == "__main__":
     water_plants(["tomato", None, "carrots"])
     print("")
     print("Cleanup always happens, even with errors!")
-
