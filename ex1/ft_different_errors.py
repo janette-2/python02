@@ -1,53 +1,59 @@
 
 def garden_operations() -> None:
-    try:
-        int("abc")
-    except ValueError as e:
-        print(e)
-    try:
-        10/0
-    except ZeroDivisionError as e:
-        print(e)
-    try:
-        open("folder/error")
-    except FileNotFoundError as e:
-        print(e)
-    try:
-        dictionary = {"key": 26}
-        dictionary["not_found"]
-    except KeyError as e:
-        print(e)
+    """
+    Simulates various garden-related operations to demonstrate exception
+    handling.
 
-
-def test_error_types() -> None:
-    print("=== Garden Error Types Demo ===\n")
+    This function intentionally triggers common Python exceptions (ValueError,
+    ZeroDivisionError, FileNotFoundError, and KeyError) and catches them using
+    try-except blocks. This ensures the execution flow is not interrupted by
+    runtime errors.
+    """
     print("Testing ValueError...")
     try:
         int("abc")
     except ValueError:
+        # Adapted to a simpler message
         print("Caught ValueError: invalid literal for int()\n")
+
     print("Testing ZeroDivisionError...")
     try:
-        126/0
-    except ZeroDivisionError:
-        print("Caught ZeroDivisionError: division by zero\n")
+        # Used the dummy variable(it will keep information but won't use it)
+        _ = 10/0
+    except ZeroDivisionError as e:
+        print(f"Caught ZeroDivisionError: {e}\n")
+
     print("Testing FileNotFoundError...")
+    file = "missing.txt"
     try:
-        open("missing.txt")
+        open(f"{file}")
     except FileNotFoundError:
-        print("Caught FileNotFoundError: No such file or directory:"
-              " 'missing.txt'\n")
+        # Adapted to a simpler message
+        print(f"Caught FileNotFoundError: No such file '{file}'\n")
+
     print("Testing KeyError...")
+    dictionary = {"key": 26}
     try:
-        dictionary = {"key": 26}
         dictionary["missing_plant"]
-    except KeyError:
-        print("Caught KeyError: 'missing\\_plant'\n")
+    except KeyError as e:
+        print(f"Caught KeyError: {e}\n")
+
     print("Testing multiple errors together...")
     try:
-        open("not_a_file.txt")
-    except (KeyError, FileNotFoundError):
+        open("missing_plant.txt")
+    except (ValueError, FileNotFoundError):
         print("Caught an error, but program continues!\n")
+
+
+def test_error_types() -> None:
+    """
+    Main test runner for demonstrating garden error types.
+
+    It initializes the demo and confirms the program's resilience after
+    all operations are completed.
+    """
+    print("=== Garden Error Types Demo ===\n")
+    garden_operations()
     print("All error types tested successfully!")
 
 
